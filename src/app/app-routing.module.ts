@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  // feature, el path lo resuelve el modulo. 
+  // feature, el path lo resuelve el modulo.
   // Se deja por motivos didacticos. Realmente esto es como un estatico, lo hace cargar segun entran a la aplicación.
   // Es mejor lazy porque solo se carga cuando piden el componente (dejo el estatico comentado)
   // {path: 'home', component: HomeComponent},
