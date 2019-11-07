@@ -1,9 +1,13 @@
-<ngb-carousel *ngIf="images" [showNavigationArrows]="true" [showNavigationIndicators]="true">
-        <ng-template ngbSlide *ngFor="let image of images">
-          <div class="picsum-img-wrapper">
-            <img [src]="image" alt="Random slide">
-          </div>
-          <div class="carousel-caption">
-          </div>
-        </ng-template>
+<div class="row">
+  <doc-saludo class="col-6"></doc-saludo>
+  <doc-saludo-ref class="col-6"></doc-saludo-ref>
+  <ngb-carousel class="col-6" *ngIf="images">
+      <ng-template ngbSlide *ngFor="let image of images">
+        <div class="picsum-img-wrapper">
+          <img [src]="image" alt="Random slide">
+        </div>
+        <div class="carousel-caption">
+        </div>
+      </ng-template>
 </ngb-carousel>
+</div>

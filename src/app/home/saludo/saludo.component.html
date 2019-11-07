@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <!--Bindeo de directivas (en este caso un textbox). Esto bindea la propiedad nombre con lo que se pone en el imput-->
+    <!--Operador de propiedades en title. [] significa que espera una propiedad del componente-->
+    <input type="text" class="form-control" placeholder="Escribe un nombre" id="nombre"
+     [(ngModel)]="nombre">
+  </div>
+  
+  <!--Manejador de eventos. $event pasa información del evento. Podria añadirle más paraemtros a parte-->
+  <button type="button" class="btn btn-primary btn-lg btn-block" (click)=onClickBorrar($event)>
+    Borrar
+  </button>
+  
+  <!--Ejemplo de binding. Dentro se pueden hacer movidas TS. En principio deberian evitarse y hacerse en el controlador -->
+  <div>
+    <p>Hola {{nombre.toUpperCase()}}</p>
+  </div>

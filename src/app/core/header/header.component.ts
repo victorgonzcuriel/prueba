@@ -8,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   title: string;
+  // Ejemplo de logo. MIRAR EL PUTO LOGO QUE NO CARGA
+  logo: string;
   constructor() { }
 
   ngOnInit() {
     this.title = 'Angular-Docout';
+    this.logo = '../../../assets/logo.svg';
   }
 
 }
