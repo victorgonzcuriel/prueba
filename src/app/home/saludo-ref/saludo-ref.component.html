@@ -1,21 +1,25 @@
 <div class="form-group">
         <label for="nombre">Nombre:</label>
         <!--#RefNombre es una referencia local, para usarla en el DOM-->
-        <!--<input type="text" class="form-control" placeholder="Escribe un nombre" id="nombre"
-          title="Aqui va tu nombre" #refNombre>-->
-        <input type="text" class="form-control" placeholder="Escribe un nombre" id="nombre"
-          title="Aqui va tu nombre" >
-      </div>
-      
-      <button type="button" class="btn btn-primary btn-lg" (click)=" refNombre = '' ">
+        <input type="text" class="form-control" id="nombre"
+    title="Aqui va tu nombre"
+    placeholder="Escribe tu nombre" #refNombre>
+</div>
+<div class="form-group">
+  <label for="apellido">Apellido:</label>
+  <!--#refApellido es una referencia local, para usarla en el DOM-->
+  <input type="text" class="form-control" id="nombre"
+[title]="msg"
+placeholder="Escribe tu Apellido" #refApellido>
+</div>
+<button type="button" class="btn btn-primary btn-lg" (click)=" refNombre.value = '' ">
             Borrar
-          </button>
-      <!--Manejador de eventos. $event pasa información del evento. Podria añadirle más paraemtros a parte-->
-      <button type="button" class="btn btn-primary btn-lg" (click)=" refNombre = 'refNombre.value' ">
-        Guardar
-      </button>
-      
-      <!--Ejemplo de binding. Dentro se pueden hacer movidas TS. En principio deberian evitarse y hacerse en el controlador -->
-      <div>
-        <p>Hola {{refNombre.value}}</p>
-      </div>
+</button>
+  <!--Manejador de eventos. $event pasa información del evento. Podria añadirle más paraemtros a parte-->
+<button type="button" class="btn btn-primary btn-lg" (click)=" refNombre.value = refNombre.value ">
+  Guardar
+</button>
+<!--Ejemplo de binding. Dentro se pueden hacer movidas TS. En principio deberian evitarse y hacerse en el controlador -->
+<div>
+  <p>Hola {{refNombre.value}}</p>
+</div>

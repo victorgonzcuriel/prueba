@@ -5,12 +5,12 @@
     <input type="text" class="form-control" placeholder="Escribe un nombre" id="nombre"
      [(ngModel)]="nombre">
   </div>
-  
+
   <!--Manejador de eventos. $event pasa información del evento. Podria añadirle más paraemtros a parte-->
   <button type="button" class="btn btn-primary btn-lg btn-block" (click)=onClickBorrar($event)>
     Borrar
   </button>
-  
+
   <!--Ejemplo de binding. Dentro se pueden hacer movidas TS. En principio deberian evitarse y hacerse en el controlador -->
   <div>
     <p>Hola {{nombre.toUpperCase()}}</p>
