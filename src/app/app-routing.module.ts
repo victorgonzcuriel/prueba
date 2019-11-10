@@ -11,6 +11,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   // lazy, delega en un modelo el enrutamiento
+  { path: 'tareas', loadChildren: () => import('./tareas/tareas.module').then(m => m.TareasModule) },
   {path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule)},
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: '**', redirectTo: 'home' }
