@@ -1,0 +1,11 @@
+<tr class="row">
+    <td>
+        <input type="checkbox" [(ngModel)]="tarea.isCompleted" (change)="sendChangeTarea()">
+    </td>
+    <td [ngClass]="{completed: tarea.isCompleted}">
+            {{ tarea.nombre }}
+    </td>
+    <td class="btn" (click)="sendDeleteTarea(tarea)">
+        🗑
+    </td>
+</tr>

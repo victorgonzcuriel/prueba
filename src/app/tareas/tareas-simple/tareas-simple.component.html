@@ -1,18 +1,28 @@
 <h2>tareas-simple!</h2>
 <div class="form-group">
+  <!--Evento de teclado al pulsar enter-->
   <input type="text" class="form-control" placeholder="Tarea"
-  [(ngModel)]="tarea.nombre">
+  [(ngModel)]="tarea.nombre" (keydown.enter)="addTarea()">
 </div>
 <button type="button" (click)="addTarea()"
     class="btn btn-primary">Add
 </button>
-<div class= 'mt-4' *ngIf="tareas.length">
+<div class= 'mt-4'>
   <h3>Lista de Tareas</h3>
-  <ul>
-    <li *ngFor="let item of tareas">
-      <input type="checkbox" [(ngModel)]="item.isCompleted">
-      {{ item.nombre }}
-      <span (click)="deleteTarea(item)">🗑️</span>
+  <ul *ngIf="tareas.length;else refElse">
+    <!--Tambien se puede recoger el indice del ngFor, aqui lo pillo directamente de la 
+      lista en el controlador-->
+    <!--Ng-Class: En función de un booleano mete una clase css u otra-->
+    <li *ngFor="let item of tareas; let i = index">
+      <input type="checkbox" [(ngModel)]="item.isCompleted" (change)="changeTarea()">
+      <span [ngClass]="{completed: item.isCompleted}">
+          {{ item.nombre }}
+          </span>
+      <span class="btn" (click)="deleteTarea(item)">🗑️</span>
     </li>
   </ul>
+  <!--Template es de HTML5. Permite tener htmls que no se renderizan. Aqui la versión Angular-->
+  <ng-template #refElse>
+    <p>Animate con tu primera tarea</p>
+  </ng-template>
 </div>

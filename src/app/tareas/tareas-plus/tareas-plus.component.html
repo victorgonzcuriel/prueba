@@ -1,1 +1,16 @@
-<p>tareas-plus works!</p>
+<h2>tareas-plus!</h2>
+<!--Recogida del evento de añadir tarea en el padre-->
+<doc-new-tarea (addTarea)="addTarea($event)"></doc-new-tarea>
+
+<div class="mt-3">
+    <h3>Lista de tareas</h3>
+
+    <table class="table table-striped">
+        <tbody>
+            <!--Construyo los hijos iterando por mi lista-->
+            <doc-tarea *ngFor="let item of tareas; let index = index" 
+            [tarea]="item" [index]="index"
+            (changeTarea)="changeTarea($event)" (deleteTarea)="deleteTarea($event)"></doc-tarea>
+        </tbody>
+    </table>
+</div>

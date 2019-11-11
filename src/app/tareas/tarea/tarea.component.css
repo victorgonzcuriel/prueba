@@ -1,12 +1,8 @@
-ul {
-    list-style: none;
-}
-
-span .btn {
-    cursor: pointer;
-}
-
 .completed {
     text-decoration: line-through;
     font-style: italic;
+}
+
+.btn {
+    cursor: pointer;
 }

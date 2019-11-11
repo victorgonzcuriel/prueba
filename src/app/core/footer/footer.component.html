@@ -5,8 +5,10 @@
                 <address>
                     {{autor}}
                 </address>
+                <!--Ejemplo de Pipe-->
                 <p class="col-12">
-                    {{fecha}}
+                    <!--{{fecha | date: 'fullDate' : null : 'es' | titlecase}}-->
+                    {{fecha | date: 'fullDate' | titlecase}}
                 </p>
             </div>   
         </div>

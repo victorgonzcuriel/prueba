@@ -1,11 +1,15 @@
 import {FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// i18n para el idioma español
+import localsEs from '@angular/common/locales/es';
+import {registerLocaleData} from '@angular/common';
 
+registerLocaleData(localsEs, 'es');
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +21,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
     CoreModule,
     NgbModule
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: 'es-ES'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
