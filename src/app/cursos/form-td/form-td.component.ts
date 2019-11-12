@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MaestrosIf } from 'src/app/models/alumno.model';
-import { CURSOS } from 'src/app/models/cursos.data';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MaestrosIf, AlumnoModel } from 'src/app/models/alumno.model';
+import { CURSOS, TURNOS } from 'src/app/models/cursos.data';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'doc-form-td',
@@ -10,10 +11,20 @@ import { CURSOS } from 'src/app/models/cursos.data';
 export class FormTdComponent implements OnInit {
 
   cursos: Array<MaestrosIf>;
+  turnos: Array<MaestrosIf>;
+  alumno: AlumnoModel;
+  @ViewChild('form_td', {static: true})
+  formulario: NgForm;
   constructor() { }
 
   ngOnInit() {
     this.cursos = CURSOS;
+    this.turnos = TURNOS;
+    this.alumno = new AlumnoModel();
+    console.log(this.formulario);
   }
 
+  onSubmit() {
+    console.log('Enviado');
+  }
 }

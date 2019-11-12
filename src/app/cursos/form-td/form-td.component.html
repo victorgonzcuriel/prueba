@@ -1,77 +1,95 @@
-<div class="">
-    <section class="row">
+<div class="col-12">
+    <section class="">
         <header class="col-12">
             <h4>Formulario TemplateDriven</h4>
+            <p>Formularios tradicionales</p>
         </header>
-        <form name="form-td" id="form-td">
+        <!--Para recoger el estado del formulario, se asigna una referencia y se la iguala a ngForm.
+        Esto ocurre porque angular ya hace el preventDefault del formultario y perdemos su estado
+        -->
+        <form name="form-td" id="form-td0" (submit)='onSubmit()' #form_td='ngForm'>
             <fieldset>
                 <legend>Datos de usuario</legend>
-                <div class="form-group">
+                <!--Se le añade una referencia al box del nombre igual que al formulario para coger su estado-->
+               <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre">
+                    <input type="text" class="form-control" name="nombre" id="nombre0"
+                    [(ngModel)]="alumno.nombre" required minlength="2" maxlength="12"
+                    #refNombre='ngModel'>
+                </div>
+                <!--Div con los errores cogiendo la referencia del box del nombre-->
+                <div *ngIf="refNombre.touched && refNombre.invalid" class="error">
+                    <!--? para decir nullable (como C#). Si es null da false. Es exclusivo de Angular-->
+                    <p *ngIf="refNombre?.errors.required">Campo requerido</p>
+                    <p *ngIf="refNombre?.errors.minlength">Longitud minima de 2 caracteres</p>
                 </div>
                 <div class="form-group">
                     <label for="apellidos">Apellidos</label>
-                    <input type="text" class="form-control" name="apellidos" id="apellidos">
+                    <input type="text" class="form-control" name="apellidos" id="apelidos0"
+                    [(ngModel)]="alumno.apellido"
+                    >
                 </div>
                 <div class="form-group">
                     <label for="passwd">Password</label>
-                    <input type="text" class="form-control" name="passwd" id="pass">
+                    <!--Validador pattern=> expresion regular para validarla-->
+                    <input type="password" class="form-control" name="passwd" id="pass0"
+                    [(ngModel)]="alumno.passw" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$"
+                    title="Password must be at least 8 characters, no more than 15 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit."
+                    >
                 </div>
                 <div class="form-group">
                     <label for="email">Correo</label>
-                    <input type="email" class="form-control" name="email" id="email" required>
+                    <input type="email" class="form-control" name="email" id="email0" required
+                    [(ngModel)]="alumno.correo"
+                    >
                 </div>
                 <div class="form-group">
                     <label for="nacim">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" name="nacim" id="nacim">
+                    <input type="date" class="form-control" name="nacim" id="nacim0"
+                    [(ngModel)]="alumno.nacimiento">
                 </div>
                 <div class="form-group">
                     <label for="coment">Comentarios</label>
-                    <textarea class="form-control" name="coment" id="coment" rows="3"></textarea>
+                    <textarea class="form-control" name="comentarios" id="coment0" rows="3"
+                    [(ngModel)]="alumno.comentarios"
+                    ></textarea>
                 </div>
             </fieldset>
             <fieldset>
                 <legend>Datos del curso</legend>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="isOk" id="isOk">
+                        <input type="checkbox" class="form-check-input" name="isOk" id="isOk0"
+                        [(ngModel)]="alumno.isOk" required
+                        >
                         Estoy de acuerdo con ....
                     </label>
                 </div>
                 <div>
                     <legend>Turno</legend>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="turno" id="" value="mañana" required>
-                            Mañana
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="turno" id="" value="tarde">
-                            Tarde
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="turno" id="" value="noche">
-                            Noche
+                    <div class="form-check" *ngFor="let item of turnos">
+                        <label class="form-check-label" [title]="item.descripcion">
+                            <input type="radio" class="form-check-input" name="turno" id="{{item.id}}_td" [value]="item" 
+                            [(ngModel)]="alumno.turno">
+                            {{item.nombre}}
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="curso">Selecciona el tema</label>
-                    <select class="form-control" name="curso" id="curso" required>
+                    <select class="form-control" name="curso" id="curso0"
+                    [(ngModel)]="alumno.curso" required
+                    >
                         <option value=""></option>
-                        
                         <option 
                         [title]="item.descripcion"
-                        *ngFor="let item of cursos" [ngValue]="item">{{item.nombre}}</option>
+                        *ngFor="let item of cursos" [ngValue]="item"
+                        >{{item.nombre}}</option>
                     </select>
                 </div>
             </fieldset>
-            <button type="submit" class="btn btn-primary">
+            <!--Deshabilito el boton en funcion del estado del formulario-->
+            <button type="submit" class="btn btn-primary" [disabled]="form_td.invalid">
                 Enviar</button>
         </form>
     </section>

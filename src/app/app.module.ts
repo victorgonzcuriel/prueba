@@ -8,6 +8,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // i18n para el idioma español
 import localsEs from '@angular/common/locales/es';
 import {registerLocaleData} from '@angular/common';
+import { UtilsModule } from './utils/utils.module';
 
 registerLocaleData(localsEs, 'es');
 @NgModule({
@@ -19,7 +20,8 @@ registerLocaleData(localsEs, 'es');
     AppRoutingModule,
     FormsModule,
     CoreModule,
-    NgbModule
+    NgbModule,
+    UtilsModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'es-ES'}],
   bootstrap: [AppComponent]
