@@ -1,0 +1,31 @@
+
+<div class="card">
+    <div class="card-header">
+        libros-mock
+    </div>
+    <div class="card-body">
+        <div class = "form-group">
+            <label for="clave">En el titulo</label>
+            <input type="text" class="form-control" id="clave" placeholder="clave a buscar en el titulo"
+            [formControl]= 'clave' (keydown.enter)="buscar()"
+            >
+            <button type="button" class="btn btn-primary"
+            (click)="buscar()"
+            >Buscar</button>
+            <button type="button" class="btn btn-primary"
+            (click)="buscar()"
+            >Buscar Servidor</button>
+            <button type="button" class="btn btn-primary"
+            (click)="borrar()"
+            >Borrar</button>
+        </div>
+
+    </div>
+    <div class="card-footer text-muted" *ngIf="libros.length">
+        <ul>
+            <li *ngFor="let item of libros">
+                {{item.autores}} - {{item.titulo}}
+            </li>
+        </ul>
+    </div>
+</div>

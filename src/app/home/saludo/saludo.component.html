@@ -13,6 +13,7 @@
 
   <!--Ejemplo de binding. Dentro se pueden hacer movidas TS. En principio deberian evitarse y hacerse en el controlador -->
   <!--Directiva propia (doc-destacar)-->
+  <!--Llamada de pipe custom-->
   <div docDestacar="Importante">
-    <p>Hola {{nombre.toUpperCase()}}</p>
+    <p> {{ ('Hola ' + nombre.toUpperCase()) | truncar}} </p>
   </div>
