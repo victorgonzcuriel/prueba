@@ -9,6 +9,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import localsEs from '@angular/common/locales/es';
 import {registerLocaleData} from '@angular/common';
 import { UtilsModule } from './utils/utils.module';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localsEs, 'es');
 @NgModule({
@@ -19,6 +20,7 @@ registerLocaleData(localsEs, 'es');
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     CoreModule,
     NgbModule,
     UtilsModule
