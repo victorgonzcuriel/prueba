@@ -20,14 +20,13 @@ export class NewTareaRxComponent implements OnInit {
   ngOnInit() {
     this.fcTarea = new FormControl();
     this.aTareas = new Array<TareaModel>();
-    this.aTareas$ = this.tareasService.subscribe();
+    this.aTareas$ = this.tareasService.subscribeTarea();
   }
 
   private sendAddTarea() {
     if (this.fcTarea.value) {
       this.tareasService.addTarea(this.fcTarea.value);
-      this.fcTarea.setValue(new TareaModel());
+      this.fcTarea.setValue('');
     }
   }
-
 }

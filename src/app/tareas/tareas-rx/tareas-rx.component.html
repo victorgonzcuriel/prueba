@@ -7,7 +7,7 @@
     <table class="table table-striped">
         <tbody>
             <doc-tarea *ngFor="let item of tareas; let index = index" 
-            [tarea]="item" [index]="index"></doc-tarea>
+            [tarea]="item" [index]="index">{{item.nombre}}</doc-tarea>
         </tbody>
     </table>
 </div>

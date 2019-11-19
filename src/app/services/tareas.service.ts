@@ -15,7 +15,7 @@ export class TareasService {
     this.tareas$ = new Subject();
   }
 
-  public subscribe(): Observable<Array<TareaModel>> {
+  public subscribeTarea(): Observable<Array<TareaModel>> {
     return this.tareas$.asObservable();
   }
 

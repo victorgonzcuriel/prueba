@@ -5,7 +5,14 @@
 export const environment = {
   production: false,
   urlLibros: 'https://www.googleapis.com/books/v1/volumes?q=intitle:',
-  urlUsers: 'http://localhost:3000/users/'
+  urlUsers: 'http://localhost:3000/users/',
+  urlPaises: 'http://restcountries.eu/rest/v2/region/',
+  urlInfoPais: 'http://restcountries.eu/rest/v2/alpha/',
+  regions: [{nombre: 'Africa', code: 'Africa'},
+  {nombre: 'America', code: 'Americas'},
+  {nombre: 'Asia', code: 'Asia'},
+  {nombre: 'Europa', code: 'Europe'},
+  {nombre: 'Oceania', code: 'Oceania'}]
 };
 
 /*
